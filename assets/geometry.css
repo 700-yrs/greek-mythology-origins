@@ -1,0 +1,37 @@
+:root{--g:#c9ae83;--ink:#f0e8da;--shade:.85;--duration:.9s;--width:760px;--heading:40px;--stroke:1.5;--arc:1}
+#introChoice,#entryNotice,#welcome.scroll-gate{position:fixed!important;inset:0!important;z-index:2020!important;display:grid;place-items:center;background:rgba(0,0,0,var(--shade))!important;padding:24px;overflow:auto;box-sizing:border-box}#introChoice[hidden],#entryNotice[hidden],#welcome[hidden]{display:none!important}
+.scroll-wrap{position:relative;width:min(var(--width),100%);margin:auto;color:var(--g);padding:36px 0;isolation:isolate;box-sizing:border-box}.scroll-sheet,#introChoice .choice-panel{position:relative;background:none!important;border:0!important;box-shadow:none!important;max-width:none!important;width:100%;padding:24px 8%!important;text-align:center;color:var(--ink);font-family:'Noto Serif TC','PMingLiU',serif;box-sizing:border-box}.scroll-content{position:relative;z-index:1;animation:geoText .35s var(--duration) both}.scroll-content h1,.scroll-content h2,#introChoice h2{font:600 clamp(22px,4.5vw,var(--heading))/1.4 'Noto Serif TC','PMingLiU',serif;color:var(--ink);letter-spacing:.08em;margin:18px 0}.scroll-content p,#introChoice p{color:var(--ink);line-height:1.8;margin:12px 0;font-size:15px}.scroll-content small,#introChoice small{color:var(--g);letter-spacing:.12em}.scroll-content .ornament{font-size:24px;color:var(--g);margin-bottom:10px}.scroll-content button,#introChoice button{display:inline-block;width:auto;background:none!important;border:0!important;border-radius:0;color:var(--g)!important;padding:12px 10px;margin:8px 0;font:600 16px 'Noto Serif TC','PMingLiU',serif;cursor:pointer;box-shadow:none!important}.scroll-content button:hover,.scroll-content a:hover{text-decoration:underline;text-underline-offset:5px}.scroll-content button:focus-visible,.scroll-content a:focus-visible{outline:2px solid var(--g);outline-offset:3px}.scroll-content button:disabled{opacity:.5}.scroll-content a{color:var(--g)}.scroll-content .qr{display:block;width:min(170px,42vw);height:auto;margin:10px auto;background:white;padding:8px;image-rendering:pixelated}.geo-rod{position:absolute;left:0;width:100%;height:32px;pointer-events:none;stroke:currentColor;stroke-width:var(--stroke);fill:none;z-index:2}.geo-top{top:0;animation:geoTop var(--duration) cubic-bezier(.25,.65,.35,1) both}.geo-bottom{bottom:0;animation:geoBottom var(--duration) cubic-bezier(.25,.65,.35,1) both}.geo-arcs{position:absolute;inset:36px 0;width:100%;height:calc(100% - 72px);stroke:currentColor;fill:none;stroke-width:1;opacity:var(--arc);pointer-events:none;animation:geoText .35s var(--duration) both}.geo-rule{display:block;width:55%;height:22px;margin:0 auto;color:var(--g)}@keyframes geoTop{from{top:calc(50% - 32px)}to{top:0}}@keyframes geoBottom{from{bottom:calc(50% - 32px)}to{bottom:0}}@keyframes geoText{from{opacity:0}to{opacity:1}}@media(max-width:480px){.scroll-wrap{padding:30px 0}.scroll-sheet,#introChoice .choice-panel{padding:12px 4%!important}.scroll-content button,#introChoice button{font-size:14px;padding:10px 5px}.scroll-content p,#introChoice p{font-size:14px}.geo-arcs{opacity:calc(var(--arc)*.5)}}@media(prefers-reduced-motion:reduce){.geo-rod,.geo-arcs,.scroll-content{animation:none!important}}#introScreen.is-choosing::before,#introScreen.is-choosing::after,#introScreen.is-notice::before,#introScreen.is-notice::after{opacity:0!important}#introScreen.is-notice .intro-center,#introScreen.is-notice .intro-skip{display:none!important}
+/* V0.5.7: independent height, explicit content rows */
+:root{--height:540px;--width:900px;--heading:48px}
+.scroll-wrap{min-height:min(var(--height),calc(100dvh - 48px));display:flex;flex-direction:column;justify-content:center;padding:44px 0;flex-shrink:0}
+.scroll-wrap .scroll-paper-reveal{width:100%;flex:none;overflow:visible!important;clip-path:none!important;animation:none!important}
+.scroll-wrap .scroll-content{display:flex;flex-direction:column;align-items:center;gap:0;width:100%;min-width:0}
+.scroll-wrap .scroll-content h1,.scroll-wrap .scroll-content h2,#introChoice .scroll-content h2{font-size:clamp(24px,4vw,var(--heading));margin:18px 0 22px;line-height:1.3}
+.scroll-wrap .scroll-content p{font-size:clamp(14px,1.25vw,18px);line-height:1.8;margin:14px 0;max-width:100%}
+.scroll-wrap .scroll-content small{display:block;font-size:13px}
+.scroll-wrap .geo-actions{display:flex;justify-content:center;align-items:center;gap:clamp(12px,3vw,36px);flex-wrap:wrap;margin:14px 0 6px;width:100%}
+.scroll-wrap .geo-actions button{font-size:clamp(15px,1.5vw,20px);min-height:44px;margin:0!important;padding:10px 12px!important;white-space:normal;flex:0 1 auto}
+.scroll-wrap .geo-footnote{display:block!important;font-size:12px!important;margin:10px 0 0!important;line-height:1.6;color:var(--ink)!important;opacity:.85}
+.scroll-wrap .geo-arcs{opacity:calc(var(--arc)*.55);z-index:-1}
+#entryNotice .scroll-wrap{min-height:min(var(--height),calc(100dvh - 48px))}
+@media(max-width:480px){.scroll-wrap{padding:36px 0;min-height:min(var(--height),calc(100dvh - 32px))}.scroll-wrap .geo-actions{gap:8px;margin:8px 0}.scroll-wrap .scroll-content h1,.scroll-wrap .scroll-content h2,#introChoice .scroll-content h2{font-size:clamp(22px,6vw,var(--heading));margin:12px 0}.scroll-wrap .geo-arcs{opacity:calc(var(--arc)*.3)}}
+
+/* V0.5.8 */
+#entryNotice .scroll-content .qr{background:transparent!important;padding:0!important;border:0!important;box-shadow:none!important;width:min(200px,48vw);image-rendering:pixelated;}
+
+/* V0.5.9: sound choices, no filled buttons */
+.scroll-wrap .geo-sound-actions{display:flex;flex-wrap:nowrap;gap:clamp(4px,1.6vw,20px);align-items:center;justify-content:center;color:var(--g)}
+.scroll-wrap .geo-sound-actions button{white-space:nowrap;flex:0 1 auto;padding:10px 3px!important;background:none!important;border:0!important;box-shadow:none!important;min-width:0;font-size:clamp(13px,2.5vw,20px)}
+.scroll-wrap .geo-sound-icon{width:clamp(17px,2.5vw,25px);height:auto;flex:none;color:var(--g);margin-right:-4px;pointer-events:none}
+.scroll-wrap .geo-sound-slash{font-size:clamp(18px,3vw,28px);font-weight:300;line-height:1;flex:none;pointer-events:none}
+.scroll-wrap .geo-sound-actions:has(button[hidden]) .geo-sound-slash,.scroll-wrap .geo-sound-actions:has(button[hidden]) .geo-sound-icon{display:none}
+.scroll-wrap .geo-sound-actions button[hidden]{display:none!important}
+.scroll-wrap .geo-sound-actions button:hover{color:var(--ink)!important;text-decoration:none}
+@media(max-width:360px){.scroll-wrap .geo-sound-actions{gap:3px}.scroll-wrap .geo-sound-actions button{font-size:12px;padding-inline:1px!important}}
+
+/* V063: keep arc visibility independent of animation opacity */
+.scroll-wrap .geo-arcs{visibility:visible;opacity:calc(var(--arc)*.55);animation:geoArc .35s var(--duration) both}@keyframes geoArc{from{opacity:0}to{opacity:calc(var(--arc)*.55)}}@media(max-width:480px){.scroll-wrap .geo-arcs{animation-name:geoArcMobile;opacity:calc(var(--arc)*.3)}@keyframes geoArcMobile{from{opacity:0}to{opacity:calc(var(--arc)*.3)}}}
+
+/* V064: shared QR sizing */
+#entryNotice .scroll-content .qr,.entry-preview .scroll-content .qr{display:block;width:min(var(--qrSize,200px),48vw,100%);height:auto;aspect-ratio:1;object-fit:contain;margin:var(--qrTop,10px) auto var(--qrBottom,10px);background:transparent!important;padding:0!important;border:0!important;box-shadow:none!important;image-rendering:pixelated}
+#extra{width:100%;text-align:center}#extra[hidden]{display:none!important}.entry-preview .scroll-wrap{max-width:90%}

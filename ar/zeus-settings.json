@@ -1,0 +1,13 @@
+{
+  "scale": 1.51,
+  "x": 0,
+  "y": 0,
+  "depth": 0.23,
+  "tilt": 0,
+  "key": 0.01,
+  "edge": 0.25,
+  "spill": 0.74,
+  "loop": true,
+  "safeMin": 0.95,
+  "safeMax": 0.95
+}
